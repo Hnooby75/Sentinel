@@ -1,0 +1,5 @@
+// ============================================
+// middleware.ts — Point d'entrée Next.js 16
+// Next.js requiert ce fichier à la racine
+// ============================================
+export { proxy as middleware, config } from './proxy'

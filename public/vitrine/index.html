@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sentinel — La plateforme tout-en-un pour les PME. SaaS de gestion IA, site web géré, marketing humain.">
+  <title>Sentinel — La plateforme tout-en-un pour les PME</title>
+  <style>
+
+    /* ===== THEME VARIABLES ===== */
+    :root {
+      --bg: #020617;
+      --bg-alt: rgba(255,255,255,0.015);
+      --bg-card: rgba(255,255,255,0.03);
+      --border: rgba(255,255,255,0.08);
+      --border-light: rgba(255,255,255,0.05);
+      --text: #e2e8f0;
+      --text-muted: #64748b;
+      --text-dim: #475569;
+      --heading: #ffffff;
+      --navbar-bg: rgba(2,6,23,0.9);
+      --navbar-border: rgba(255,255,255,0.06);
+      --nav-link: rgba(255,255,255,0.55);
+      --nav-link-hover: #ffffff;
+      --input-bg: rgba(255,255,255,0.05);
+      --input-border: rgba(255,255,255,0.1);
+      --input-focus-bg: rgba(6,182,212,0.04);
+      --stats-bg: rgba(255,255,255,0.015);
+      --stats-border: rgba(255,255,255,0.05);
+      --badge-bg: rgba(6,182,212,0.05);
+      --badge-border: rgba(6,182,212,0.3);
+      --badge-text: #67e8f9;
+      --guarantee-bg: rgba(255,255,255,0.015);
+      --guarantee-icon-bg: rgba(255,255,255,0.05);
+      --guarantee-icon-border: rgba(255,255,255,0.08);
+      --footer-bg: #020617;
+      --footer-copy: #334155;
+      --hero-grid-opacity: 0.03;
+      --mockup-bg: rgba(255,255,255,0.02);
+      --mockup-stat-bg: rgba(255,255,255,0.03);
+      --mockup-stat-border: rgba(255,255,255,0.05);
+      --mockup-bar-bg: rgba(255,255,255,0.01);
+      --mockup-bar-border: rgba(255,255,255,0.05);
+      --popular-bg: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(139,92,246,0.15));
+      --popular-border: rgba(6,182,212,0.4);
+      --plan-row-border: rgba(255,255,255,0.06);
+      --plan-row-active: rgba(6,182,212,0.08);
+      --placeholder: #334155;
+      --form-msg-bg: rgba(52,211,153,0.1);
+      --form-msg-border: rgba(52,211,153,0.3);
+      --select-arrow: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748b' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      --theme-toggle-bg: rgba(255,255,255,0.06);
+      --theme-toggle-border: rgba(255,255,255,0.1);
+      --footer-link: #475569;
+      --footer-link-hover: #94a3b8;
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --bg-alt: #f1f5f9;
+      --bg-card: #ffffff;
+      --border: rgba(0,0,0,0.08);
+      --border-light: rgba(0,0,0,0.05);
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --text-dim: #94a3b8;
+      --heading: #0f172a;
+      --navbar-bg: rgba(248,250,252,0.95);
+      --navbar-border: rgba(0,0,0,0.08);
+      --nav-link: rgba(0,0,0,0.55);
+      --nav-link-hover: #0f172a;
+      --input-bg: #ffffff;
+      --input-border: rgba(0,0,0,0.12);
+      --input-focus-bg: rgba(6,182,212,0.04);
+      --stats-bg: #f1f5f9;
+      --stats-border: rgba(0,0,0,0.06);
+      --badge-bg: rgba(6,182,212,0.08);
+      --badge-border: rgba(6,182,212,0.25);
+      --badge-text: #0891b2;
+      --guarantee-bg: #f1f5f9;
+      --guarantee-icon-bg: rgba(6,182,212,0.1);
+      --guarantee-icon-border: rgba(6,182,212,0.2);
+      --footer-bg: #0f172a;
+      --footer-copy: #64748b;
+      --hero-grid-opacity: 0.04;
+      --mockup-bg: rgba(255,255,255,0.9);
+      --mockup-stat-bg: #f8fafc;
+      --mockup-stat-border: rgba(0,0,0,0.06);
+      --mockup-bar-bg: #f1f5f9;
+      --mockup-bar-border: rgba(0,0,0,0.06);
+      --popular-bg: linear-gradient(135deg, rgba(6,182,212,0.07), rgba(139,92,246,0.05));
+      --popular-border: rgba(6,182,212,0.3);
+      --plan-row-border: rgba(0,0,0,0.06);
+      --plan-row-active: rgba(6,182,212,0.06);
+      --placeholder: #94a3b8;
+      --form-msg-bg: rgba(52,211,153,0.08);
+      --form-msg-border: rgba(52,211,153,0.25);
+      --theme-toggle-bg: rgba(0,0,0,0.06);
+      --theme-toggle-border: rgba(0,0,0,0.1);
+      --footer-link: #64748b;
+      --footer-link-hover: #cbd5e1;
+    }
+
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      transition: background-color 0.25s, color 0.25s;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes gradient-x {
+      0%,100% { background-position: 0% 50%; }
+      50%      { background-position: 100% 50%; }
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-10px); }
+    }
+    @keyframes glow-pulse {
+      0%,100% { box-shadow: 0 0 20px rgba(6,182,212,.3); }
+      50%      { box-shadow: 0 0 40px rgba(6,182,212,.6), 0 0 80px rgba(139,92,246,.3); }
+    }
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse-dot {
+      0%,100% { opacity:1; transform: scale(1); }
+      50%      { opacity:.4; transform: scale(.8); }
+    }
+    @keyframes shimmer {
+      from { background-position: -200% 0; }
+      to   { background-position: 200% 0; }
+    }
+
+    /* ===== UTILS ===== */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .text-gradient {
+      background: linear-gradient(to right, #22d3ee, #60a5fa, #a78bfa);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradient-x 4s linear infinite;
+    }
+    .section { padding: 96px 0; }
+    .section-alt { background: var(--bg-alt); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+    .section-header { text-align: center; max-width: 640px; margin: 0 auto 64px; }
+    .section-header .eyebrow { display: inline-block; font-size: 13px; font-weight: 700; color: #22d3ee; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+    .section-header h2 { font-size: clamp(28px, 5vw, 40px); font-weight: 900; color: var(--heading); margin-bottom: 14px; line-height: 1.15; letter-spacing: -0.5px; }
+    .section-header p { color: var(--text-muted); font-size: 17px; line-height: 1.7; }
+    .tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 100px; background: var(--badge-bg); border: 1px solid var(--badge-border); color: var(--badge-text); }
+
+    /* Mockup stat value colors */
+    .color-emerald { color: #34d399; }
+    .color-violet  { color: #a78bfa; }
+    .color-cyan    { color: #22d3ee; }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: 12px; font-weight: 700;
+      font-size: 16px; cursor: pointer; border: none; transition: all .2s;
+      text-decoration: none; white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(to right, #06b6d4, #3b82f6, #8b5cf6);
+      color: #fff; animation: glow-pulse 3s ease-in-out infinite;
+    }
+    .btn-primary:hover { opacity: .9; transform: translateY(-1px); }
+    .btn-outline {
+      background: var(--bg-card); color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { border-color: rgba(6,182,212,0.4); color: var(--heading); }
+    .btn-sm { padding: 10px 20px; font-size: 14px; }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: var(--navbar-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--navbar-border);
+      padding: 14px 0;
+      transition: background 0.25s, box-shadow .3s;
+    }
+    .navbar.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,.15); }
+    .navbar .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+
+    .nav-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .nav-logo-icon {
+      width: 36px; height: 36px; border-radius: 9px;
+      background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 16px; color: #fff;
+    }
+    .nav-logo-text { font-size: 18px; font-weight: 800; color: var(--heading); letter-spacing: -0.5px; }
+
+    .nav-links { display: flex; align-items: center; gap: 4px; flex: 1; justify-content: center; }
+    .nav-links a {
+      color: var(--nav-link); font-size: 14px; font-weight: 500;
+      padding: 7px 12px; border-radius: 8px;
+      transition: color .2s, background .2s;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .nav-links a:hover { color: var(--nav-link-hover); background: var(--bg-card); }
+
+    .nav-actions { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .theme-toggle {
+      width: 36px; height: 36px; border-radius: 9px;
+      background: var(--theme-toggle-bg); border: 1px solid var(--theme-toggle-border);
+      cursor: pointer; font-size: 16px; transition: all .2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .theme-toggle:hover { background: var(--bg-card); transform: scale(1.05); }
+    .nav-login { color: var(--nav-link); font-size: 14px; font-weight: 600; padding: 8px 16px; border-radius: 9px; border: 1px solid var(--border); transition: all .2s; }
+    .nav-login:hover { color: var(--nav-link-hover); border-color: rgba(6,182,212,0.3); }
+    .nav-cta { padding: 10px 20px; font-size: 14px; border-radius: 10px; }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      width: 36px; height: 36px; border: 1px solid var(--border);
+      border-radius: 9px; background: var(--bg-card);
+      align-items: center; justify-content: center;
+      cursor: pointer; padding: 0;
+    }
+    .hamburger span { display: block; width: 18px; height: 2px; background: var(--text); border-radius: 2px; transition: all .25s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile nav */
+    .nav-mobile {
+      display: none; position: fixed; top: 65px; left: 0; right: 0; z-index: 190;
+      background: var(--navbar-bg); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--navbar-border);
+      padding: 16px 24px 24px; flex-direction: column; gap: 6px;
+    }
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a { color: var(--nav-link); font-size: 15px; font-weight: 500; padding: 10px 14px; border-radius: 10px; transition: all .2s; }
+    .nav-mobile a:hover { color: var(--nav-link-hover); background: var(--bg-card); }
+    .nav-mobile-divider { border-top: 1px solid var(--border); margin: 8px 0; }
+    .nav-mobile-actions { display: flex; gap: 10px; margin-top: 4px; }
+    .nav-mobile-actions a { flex: 1; justify-content: center; }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      padding: 130px 24px 80px; text-align: center; overflow: hidden;
+    }
+    .hero-blur-1 { position: absolute; top: 20%; left: 20%; width: 420px; height: 420px; background: rgba(6,182,212,.1); border-radius: 50%; filter: blur(90px); pointer-events: none; }
+    .hero-blur-2 { position: absolute; bottom: 20%; right: 15%; width: 360px; height: 360px; background: rgba(139,92,246,.1); border-radius: 50%; filter: blur(90px); pointer-events: none; }
+    .hero-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      opacity: var(--hero-grid-opacity);
+      background-image: linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px);
+      background-size: 44px 44px;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 900px; animation: fade-up .7s ease both; }
+    .hero-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 32px; }
+    .hero-badge {
+      font-size: 12px; padding: 5px 14px; border-radius: 100px;
+      border: 1px solid var(--badge-border); color: var(--badge-text); background: var(--badge-bg);
+    }
+    .hero h1 {
+      font-size: clamp(40px, 8vw, 78px); font-weight: 900;
+      letter-spacing: -2px; line-height: 1.05; margin-bottom: 24px;
+      color: var(--heading);
+    }
+    .hero-sub { font-size: clamp(16px, 2.5vw, 21px); color: var(--text-muted); max-width: 620px; margin: 0 auto 12px; line-height: 1.7; }
+    .hero-sub2 { font-size: 15px; color: var(--text-dim); max-width: 500px; margin: 0 auto 40px; }
+    .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+
+    /* Dashboard mockup */
+    .hero-mockup { margin-top: 64px; animation: float 6s ease-in-out infinite; position: relative; z-index: 1; }
+    .mockup-window {
+      max-width: 700px; margin: 0 auto;
+      border-radius: 18px; border: 1px solid var(--border);
+      background: var(--mockup-bg); backdrop-filter: blur(20px);
+      overflow: hidden; box-shadow: 0 40px 100px rgba(6,182,212,.07), 0 20px 40px rgba(0,0,0,.3);
+    }
+    .mockup-bar {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 16px; border-bottom: 1px solid var(--mockup-bar-border);
+      background: var(--mockup-bar-bg);
+    }
+    .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .mockup-url { margin-left: 16px; font-size: 12px; color: var(--text-dim); font-family: monospace; background: var(--mockup-stat-bg); padding: 3px 10px; border-radius: 6px; }
+    .mockup-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 20px; }
+    .mockup-stat { padding: 16px; border-radius: 12px; background: var(--mockup-stat-bg); border: 1px solid var(--mockup-stat-border); text-align: left; }
+    .mockup-stat-label { font-size: 11px; color: var(--text-dim); margin-bottom: 6px; }
+    .mockup-stat-value { font-size: 22px; font-weight: 800; }
+    .mockup-bottom { margin: 0 20px 20px; padding: 14px; border-radius: 12px; background: var(--mockup-stat-bg); border: 1px solid var(--mockup-stat-border); }
+    .mockup-bottom-text { font-size: 12px; color: var(--text-dim); display: flex; align-items: center; gap: 10px; }
+    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: #34d399; flex-shrink: 0; animation: pulse-dot 2s infinite; }
+
+    /* ===== STATS BAR ===== */
+    .stats-bar {
+      background: var(--stats-bg);
+      border-top: 1px solid var(--stats-border);
+      border-bottom: 1px solid var(--stats-border);
+      padding: 36px 0;
+    }
+    .stats-bar .container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+    .stat-item { text-align: center; }
+    .stat-item .val { font-size: 28px; font-weight: 900; color: var(--heading); letter-spacing: -1px; }
+    .stat-item .val span { background: linear-gradient(to right, #22d3ee, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .stat-item .lab { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+
+    /* ===== SECTION GÉNÉRIQUE SPLIT ===== */
+    .split-section { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .split-section.reverse .split-content { order: -1; }
+    .split-label { font-size: 12px; font-weight: 700; color: #22d3ee; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 12px; }
+    .split-section h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 900; color: var(--heading); margin-bottom: 16px; line-height: 1.2; letter-spacing: -0.5px; }
+    .split-section > div > p { color: var(--text-muted); font-size: 16px; line-height: 1.8; margin-bottom: 28px; }
+    .features-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+    .feature-item { display: flex; align-items: flex-start; gap: 12px; }
+    .feature-check {
+      width: 24px; height: 24px; border-radius: 7px; flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(6,182,212,.2), rgba(139,92,246,.2));
+      border: 1px solid rgba(6,182,212,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; color: #34d399;
+    }
+    .feature-item span { font-size: 15px; color: var(--text); line-height: 1.4; padding-top: 2px; }
+    .feature-item strong { color: var(--heading); }
+
+    /* ===== PRICING CARD (SaaS) ===== */
+    .pricing-card {
+      border-radius: 22px; border: 1px solid var(--border);
+      background: var(--bg-card); padding: 32px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.12);
+    }
+    .pricing-card h3 { font-size: 16px; font-weight: 700; color: var(--heading); margin-bottom: 4px; }
+    .pricing-card > p { font-size: 13px; color: var(--text-muted); margin-bottom: 24px; }
+    .plan-rows { display: flex; flex-direction: column; gap: 0; border-radius: 14px; border: 1px solid var(--border); overflow: hidden; margin-bottom: 24px; }
+    .plan-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 20px; border-bottom: 1px solid var(--plan-row-border);
+      cursor: default; transition: background .2s;
+    }
+    .plan-row:last-child { border-bottom: none; }
+    .plan-row.active { background: var(--plan-row-active); }
+    .plan-row-left { display: flex; flex-direction: column; gap: 2px; }
+    .plan-row-name { font-size: 14px; font-weight: 700; color: var(--heading); display: flex; align-items: center; gap: 8px; }
+    .plan-row-sub { font-size: 12px; color: var(--text-muted); }
+    .plan-row-price { font-size: 18px; font-weight: 900; color: #22d3ee; white-space: nowrap; }
+    .plan-popular-badge { font-size: 10px; font-weight: 800; background: linear-gradient(to right, #06b6d4, #8b5cf6); color: #fff; padding: 2px 8px; border-radius: 100px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .pricing-cta { width: 100%; justify-content: center; padding: 14px; font-size: 15px; }
+    .pricing-note { text-align: center; font-size: 12px; color: var(--text-dim); margin-top: 12px; }
+
+    /* ===== WEB SECTION ===== */
+    .web-plans { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .web-plan-card {
+      border-radius: 16px; border: 1px solid var(--border);
+      background: var(--bg-card); padding: 24px; transition: all .3s;
+    }
+    .web-plan-card:hover { border-color: rgba(6,182,212,.3); }
+    .web-plan-card.popular { border-color: var(--popular-border); background: var(--popular-bg); }
+    .web-plan-name { font-size: 14px; font-weight: 700; color: var(--heading); margin-bottom: 4px; }
+    .web-plan-price { font-size: 24px; font-weight: 900; color: #22d3ee; margin-bottom: 12px; }
+    .web-plan-features { display: flex; flex-direction: column; gap: 7px; }
+    .web-plan-feat { font-size: 13px; color: var(--text-muted); display: flex; align-items: center; gap: 7px; }
+    .web-plan-feat::before { content: "✓"; color: #34d399; font-weight: 700; font-size: 12px; flex-shrink: 0; }
+
+    /* ===== MARKETING SECTION ===== */
+    .marketing-plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .mkt-card {
+      border-radius: 20px; border: 1px solid var(--border);
+      background: var(--bg-card); padding: 28px; transition: all .3s;
+    }
+    .mkt-card:hover { border-color: rgba(6,182,212,.25); transform: translateY(-4px); }
+    .mkt-card.popular { border: 2px solid rgba(6,182,212,.4); background: var(--popular-bg); }
+    .mkt-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; }
+    .mkt-card-name { font-size: 16px; font-weight: 800; color: var(--heading); }
+    .mkt-card-price { font-size: 26px; font-weight: 900; color: #22d3ee; margin-bottom: 4px; }
+    .mkt-card-period { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; }
+    .mkt-card-features { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+    .mkt-feat { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--text); }
+    .mkt-feat-icon { width: 20px; height: 20px; border-radius: 6px; background: rgba(52,211,153,.1); border: 1px solid rgba(52,211,153,.2); display: flex; align-items: center; justify-content: center; font-size: 10px; color: #34d399; flex-shrink: 0; }
+
+    /* ===== PACKS SECTION ===== */
+    .packs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .pack-card {
+      border-radius: 20px; border: 1px solid var(--border);
+      background: var(--bg-card); padding: 28px; transition: all .3s;
+      display: flex; flex-direction: column;
+    }
+    .pack-card:hover { transform: translateY(-4px); border-color: rgba(6,182,212,.2); }
+    .pack-card.popular {
+      border: 2px solid rgba(6,182,212,.5);
+      background: var(--popular-bg);
+      position: relative;
+    }
+    .pack-popular-tag {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      font-size: 11px; font-weight: 800; white-space: nowrap;
+      padding: 4px 14px; border-radius: 100px;
+      background: linear-gradient(to right, #06b6d4, #8b5cf6); color: #fff;
+    }
+    .pack-icon { font-size: 28px; margin-bottom: 14px; }
+    .pack-name { font-size: 16px; font-weight: 800; color: var(--heading); margin-bottom: 4px; }
+    .pack-tagline { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.4; }
+    .pack-price { font-size: 28px; font-weight: 900; color: var(--heading); margin-bottom: 2px; letter-spacing: -1px; }
+    .pack-price span { font-size: 14px; font-weight: 500; color: var(--text-muted); }
+    .pack-saving { font-size: 12px; font-weight: 700; color: #34d399; margin-bottom: 16px; }
+    .pack-divider { border-top: 1px solid var(--border); margin: 16px 0; }
+    .pack-includes { font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .pack-features { display: flex; flex-direction: column; gap: 8px; flex: 1; margin-bottom: 20px; }
+    .pack-feat { font-size: 13px; color: var(--text); display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; }
+    .pack-feat::before { content: "✓"; color: #34d399; font-weight: 700; font-size: 12px; flex-shrink: 0; margin-top: 1px; }
+    .pack-cta { text-align: center; padding: 12px; font-size: 14px; border-radius: 10px; }
+
+    /* ===== TÉMOIGNAGES ===== */
+    .temoignages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .temoignage-card {
+      border-radius: 20px; border: 1px solid var(--border);
+      background: var(--bg-card); padding: 28px; transition: all .3s;
+    }
+    .temoignage-card:hover { border-color: rgba(6,182,212,.3); transform: translateY(-2px); }
+    .temoignage-stars { display: flex; gap: 3px; margin-bottom: 16px; }
+    .star.on { color: #fbbf24; }
+    .star.off { color: var(--text-dim); }
+    blockquote { color: var(--text); font-size: 15px; line-height: 1.75; font-style: italic; margin-bottom: 20px; }
+    .temoignage-author { display: flex; align-items: center; gap: 12px; }
+    .temoignage-avatar {
+      width: 42px; height: 42px; border-radius: 50%; flex-shrink: 0;
+      background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; color: #fff; font-size: 13px;
+    }
+    .temoignage-name { font-weight: 700; color: var(--heading); font-size: 14px; }
+    .temoignage-poste { color: var(--text-muted); font-size: 12px; margin-top: 2px; }
+
+    /* ===== GARANTIES ===== */
+    .guarantees {
+      background: var(--guarantee-bg);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      padding: 64px 0;
+    }
+    .guarantees-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
+    .guarantee-item { text-align: center; }
+    .guarantee-icon {
+      width: 52px; height: 52px; border-radius: 14px;
+      background: var(--guarantee-icon-bg); border: 1px solid var(--guarantee-icon-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; margin: 0 auto 14px;
+    }
+    .guarantee-item p { font-size: 14px; font-weight: 700; color: var(--heading); margin-bottom: 4px; }
+    .guarantee-item span { font-size: 12px; color: var(--text-muted); }
+
+    /* ===== CONTACT ===== */
+    .contact-inner { display: grid; grid-template-columns: 1fr 1.5fr; gap: 72px; align-items: start; }
+    .contact-info h2 { font-size: clamp(26px, 4vw, 36px); font-weight: 900; color: var(--heading); margin-bottom: 12px; line-height: 1.2; }
+    .contact-info > p { color: var(--text-muted); font-size: 16px; margin-bottom: 36px; line-height: 1.75; }
+    .contact-details { display: flex; flex-direction: column; gap: 18px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 16px; }
+    .contact-item-icon {
+      width: 44px; height: 44px; flex-shrink: 0; border-radius: 12px;
+      background: rgba(6,182,212,.1); border: 1px solid rgba(6,182,212,.2);
+      display: flex; align-items: center; justify-content: center; font-size: 20px;
+    }
+    .contact-item-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .8px; color: var(--text-muted); margin-bottom: 4px; }
+    .contact-item-value { font-size: 15px; font-weight: 600; color: var(--text); }
+    .contact-item-value a { color: #22d3ee; }
+    .contact-form-box {
+      border-radius: 22px; border: 1px solid var(--border);
+      background: var(--bg-card); padding: 36px;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%; padding: 13px 16px;
+      border: 1px solid var(--input-border); border-radius: 10px;
+      background: var(--input-bg); color: var(--text); font-size: 14px;
+      transition: border-color .2s, background .2s; font-family: inherit;
+      appearance: none; -webkit-appearance: none;
+    }
+    .form-group select {
+      background-image: var(--select-arrow);
+      background-repeat: no-repeat; background-position: right 14px center;
+      padding-right: 40px; cursor: pointer;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--placeholder); }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+      outline: none; border-color: #06b6d4; background: var(--input-focus-bg);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-submit { width: 100%; justify-content: center; padding: 15px; font-size: 15px; }
+    .form-success {
+      display: none; background: var(--form-msg-bg); border: 1px solid var(--form-msg-border);
+      border-radius: 10px; padding: 14px; text-align: center;
+      color: #34d399; font-weight: 600; margin-top: 14px; font-size: 14px;
+    }
+
+    /* ===== CTA FINAL ===== */
+    .cta-final { text-align: center; }
+    .cta-box {
+      max-width: 700px; margin: 0 auto;
+      border-radius: 28px; border: 1px solid rgba(6,182,212,.2);
+      background: linear-gradient(135deg, rgba(6,182,212,.08), rgba(139,92,246,.05));
+      padding: 72px 48px;
+    }
+    .cta-icon { font-size: 48px; margin-bottom: 20px; }
+    .cta-box h2 { font-size: clamp(26px, 4vw, 38px); font-weight: 900; color: var(--heading); margin-bottom: 14px; }
+    .cta-box p { color: var(--text-muted); font-size: 17px; margin-bottom: 36px; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .cta-note { font-size: 12px; color: var(--text-dim); margin-top: 16px; }
+
+    /* ===== FOOTER ===== */
+    .footer { background: var(--footer-bg); border-top: 1px solid var(--border-light); padding: 60px 0 32px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .footer-logo-icon {
+      width: 32px; height: 32px; border-radius: 8px; font-weight: 900; font-size: 14px; color: #fff;
+      background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .footer-logo-name { font-size: 16px; font-weight: 800; color: #fff; }
+    .footer-brand p { font-size: 14px; color: var(--footer-link); line-height: 1.7; max-width: 260px; }
+    .footer-col h4 { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 14px; color: var(--footer-link); transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--footer-link-hover); }
+    .footer-bottom { border-top: 1px solid var(--border-light); padding-top: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-size: 13px; color: var(--footer-link); }
+    .footer-powered { font-size: 12px; color: var(--footer-link); }
+    .footer-powered strong { color: #22d3ee; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1100px) {
+      .packs-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .nav-links, .nav-login { display: none; }
+      .hamburger { display: flex; }
+      .stats-bar .container { grid-template-columns: repeat(2, 1fr); }
+      .split-section { grid-template-columns: 1fr; gap: 40px; }
+      .split-section.reverse .split-content { order: 0; }
+      .web-plans { grid-template-columns: 1fr; }
+      .marketing-plans { grid-template-columns: 1fr; }
+      .packs-grid { grid-template-columns: 1fr 1fr; }
+      .temoignages-grid { grid-template-columns: 1fr; }
+      .guarantees-grid { grid-template-columns: repeat(3, 1fr); }
+      .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .cta-box { padding: 48px 28px; }
+      .section { padding: 72px 0; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      .packs-grid { grid-template-columns: 1fr; }
+      .guarantees-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero { padding: 110px 24px 60px; }
+      .mockup-stats { grid-template-columns: 1fr 1fr; }
+      .mockup-stats > div:last-child { display: none; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a class="nav-logo" href="/vitrine/">
+        <div class="nav-logo-icon">S</div>
+        <span class="nav-logo-text">Sentinel</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#saas">SaaS Panel</a>
+        <a href="#web">Site Web</a>
+        <a href="#marketing">Marketing</a>
+        <a href="#packs">Packs</a>
+        <a href="#avis">Avis</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Changer le thème">🌙</button>
+        <a href="/connexion" class="nav-login">Connexion</a>
+        <a href="#contact" class="btn btn-primary nav-cta">Essai gratuit</a>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="#saas" onclick="closeMenu()">SaaS Panel</a>
+    <a href="#web" onclick="closeMenu()">Site Web Géré</a>
+    <a href="#marketing" onclick="closeMenu()">Marketing</a>
+    <a href="#packs" onclick="closeMenu()">Packs</a>
+    <a href="#avis" onclick="closeMenu()">Avis clients</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+    <div class="nav-mobile-divider"></div>
+    <div class="nav-mobile-actions">
+      <a href="/connexion" class="btn btn-outline" style="flex:1;justify-content:center;padding:12px">Connexion</a>
+      <a href="#contact" class="btn btn-primary" onclick="closeMenu()" style="flex:1;justify-content:center;padding:12px">Essai gratuit</a>
+    </div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-blur-1"></div>
+    <div class="hero-blur-2"></div>
+    <div class="hero-grid"></div>
+
+    <div class="hero-content">
+      <div class="hero-badges">
+        <span class="hero-badge">SaaS de gestion IA</span>
+        <span class="hero-badge">Site web géré</span>
+        <span class="hero-badge">Marketing humain</span>
+        <span class="hero-badge">Données hébergées en France</span>
+      </div>
+
+      <h1>
+        <span class="text-gradient" id="v-h1-l1">Pilotez votre PME</span><br>
+        <span id="v-h1-l2">depuis un seul endroit</span>
+      </h1>
+
+      <p class="hero-sub" id="v-hero-sub">La plateforme tout-en-un qui combine SaaS de gestion IA, site web professionnel et marketing humain — pour les dirigeants qui veulent performer.</p>
+      <p class="hero-sub2">Sans engagement • 30 jours remboursés • Support humain inclus</p>
+
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Démarrer gratuitement →</a>
+        <a href="#packs" class="btn btn-outline">Voir nos packs</a>
+      </div>
+
+      <!-- Dashboard mockup -->
+      <div class="hero-mockup">
+        <div class="mockup-window">
+          <div class="mockup-bar">
+            <div class="mockup-dot" style="background:#ef4444aa"></div>
+            <div class="mockup-dot" style="background:#f59e0baa"></div>
+            <div class="mockup-dot" style="background:#22c55eaa"></div>
+            <span class="mockup-url">app.sentinel.fr/dashboard</span>
+          </div>
+          <div class="mockup-stats">
+            <div class="mockup-stat">
+              <div class="mockup-stat-label">Économies fiscales</div>
+              <div class="mockup-stat-value color-emerald">4 200€</div>
+            </div>
+            <div class="mockup-stat">
+              <div class="mockup-stat-label">Score global</div>
+              <div class="mockup-stat-value color-violet">87<small style="font-size:14px">/100</small></div>
+            </div>
+            <div class="mockup-stat">
+              <div class="mockup-stat-label">Obligations à jour</div>
+              <div class="mockup-stat-value color-cyan">12/12</div>
+            </div>
+          </div>
+          <div class="mockup-bottom">
+            <div class="mockup-bottom-text">
+              <span class="pulse-dot"></span>
+              <span>Copilote IA — TVA T1 2026 : 3 déductions identifiées, économie estimée 840€</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STATS BAR ===== -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stat-item">
+        <div class="val"><span>4 200€</span></div>
+        <div class="lab">économisés en moyenne / an</div>
+      </div>
+      <div class="stat-item">
+        <div class="val"><span>8h</span></div>
+        <div class="lab">gagnées par semaine</div>
+      </div>
+      <div class="stat-item">
+        <div class="val"><span>500+</span></div>
+        <div class="lab">PME accompagnées</div>
+      </div>
+      <div class="stat-item">
+        <div class="val"><span>30j</span></div>
+        <div class="lab">remboursé si insatisfait</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SAAS PANEL ===== -->
+  <section class="section" id="saas">
+    <div class="container">
+      <div class="split-section">
+        <div class="split-content">
+          <div class="split-label">SaaS Panel</div>
+          <h2>Gérez votre PME depuis un tableau de bord intelligent</h2>
+          <p>Un cockpit complet propulsé par l'IA pour piloter votre finance, vos équipes, votre CRM et vos obligations légales — sans jongler entre 10 outils.</p>
+
+          <div class="features-list">
+            <div class="feature-item"><div class="feature-check">✓</div><span><strong>Copilote IA dirigeant</strong> — Cockpit, finance, RH, CRM, opérations</span></div>
+            <div class="feature-item"><div class="feature-check">✓</div><span><strong>Score global entreprise</strong> — Santé financière en temps réel</span></div>
+            <div class="feature-item"><div class="feature-check">✓</div><span><strong>Obligations légales</strong> — Suivi automatique, zéro pénalité</span></div>
+            <div class="feature-item"><div class="feature-check">✓</div><span><strong>Gestion des contrats & impayés</strong> — Relances intelligentes</span></div>
+            <div class="feature-item"><div class="feature-check">✓</div><span><strong>CRM & Leads</strong> — Prédictions de vente par IA</span></div>
+            <div class="feature-item"><div class="feature-check">✓</div><span><strong>Gestion d'équipe</strong> — Invitations, rôles, congés</span></div>
+            <div class="feature-item"><div class="feature-check">✓</div><span><strong>Journaux d'usage IA</strong> — Traçabilité totale</span></div>
+          </div>
+
+          <a href="/saas" class="btn btn-primary">Découvrir le SaaS Panel →</a>
+        </div>
+
+        <div>
+          <div class="pricing-card">
+            <h3>Choisissez votre plan</h3>
+            <p>Tous les plans incluent l'essai 30 jours gratuit</p>
+
+            <div class="plan-rows">
+              <div class="plan-row">
+                <div class="plan-row-left">
+                  <div class="plan-row-name">Starter</div>
+                  <div class="plan-row-sub">Jusqu'à 5 utilisateurs</div>
+                </div>
+                <div class="plan-row-price" id="price-saas-starter">79€/mois</div>
+              </div>
+              <div class="plan-row active">
+                <div class="plan-row-left">
+                  <div class="plan-row-name">
+                    Pro
+                    <span class="plan-popular-badge">Populaire</span>
+                  </div>
+                  <div class="plan-row-sub">Jusqu'à 20 utilisateurs + IA avancée</div>
+                </div>
+                <div class="plan-row-price" id="price-saas-pro">149€/mois</div>
+              </div>
+              <div class="plan-row">
+                <div class="plan-row-left">
+                  <div class="plan-row-name">Enterprise</div>
+                  <div class="plan-row-sub">Utilisateurs illimités + API + Account Manager</div>
+                </div>
+                <div class="plan-row-price" id="price-saas-enterprise">499€/mois</div>
+              </div>
+            </div>
+
+            <a href="#contact" class="btn btn-primary pricing-cta">Démarrer gratuitement →</a>
+            <p class="pricing-note">Sans carte bancaire · Annulation libre à tout moment</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SITE WEB GÉRÉ ===== -->
+  <section class="section section-alt" id="web">
+    <div class="container">
+      <div class="split-section reverse">
+        <div>
+          <div class="web-plans">
+            <div class="web-plan-card">
+              <div class="web-plan-name">Essentiel</div>
+              <div class="web-plan-price" id="price-web-essentiel">149€<small style="font-size:14px;font-weight:500;color:var(--text-muted)">/mois</small></div>
+              <div class="web-plan-features">
+                <div class="web-plan-feat">Site vitrine 5 pages</div>
+                <div class="web-plan-feat">SEO de base optimisé</div>
+                <div class="web-plan-feat">CMS — édition facile</div>
+                <div class="web-plan-feat">SSL & hébergement inclus</div>
+                <div class="web-plan-feat">Responsive mobile</div>
+              </div>
+            </div>
+            <div class="web-plan-card popular">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+                <div class="web-plan-name">Pro</div>
+                <span class="tag">Recommandé</span>
+              </div>
+              <div class="web-plan-price" id="price-web-pro">249€<small style="font-size:14px;font-weight:500;color:var(--text-muted)">/mois</small></div>
+              <div class="web-plan-features">
+                <div class="web-plan-feat">Site complet 15+ pages</div>
+                <div class="web-plan-feat">SEO avancé + Blog intégré</div>
+                <div class="web-plan-feat">Analytics & heatmaps</div>
+                <div class="web-plan-feat">Optimisation conversion</div>
+                <div class="web-plan-feat">Mises à jour prioritaires</div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:20px">
+            <a href="/web" class="btn btn-primary">Voir les détails →</a>
+          </div>
+        </div>
+
+        <div class="split-content">
+          <div class="split-label">Site Web Géré</div>
+          <h2>Votre site pro, géré de A à Z par notre équipe</h2>
+          <p>Vous vous concentrez sur votre métier. Nous gérons votre présence en ligne : design, contenu, SEO, hébergement, maintenance — tout inclus dans l'abonnement.</p>
+
+          <div class="features-list">
+            <div class="feature-item"><div class="feature-check">✓</div><span><strong>Design sur mesure</strong> — Aux couleurs de votre marque</span></div>
+            <div class="feature-item"><div class="feature-check">✓</div><span><strong>CMS intégré</strong> — Modifiez vos textes en 2 clics</span></div>
+            <div class="feature-item"><div class="feature-check">✓</div><span><strong>Hébergement & SSL</strong> — Serveurs France, 99.9% uptime</span></div>
+            <div class="feature-item"><div class="feature-check">✓</div><span><strong>SEO optimisé</strong> — Visible sur Google dès le départ</span></div>
+            <div class="feature-item"><div class="feature-check">✓</div><span><strong>Maintenance incluse</strong> — Mises à jour & sauvegardes auto</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MARKETING HUMAIN ===== -->
+  <section class="section" id="marketing">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Marketing Humain</span>
+        <h2>Une équipe marketing dédiée à votre croissance</h2>
+        <p>Des vraies personnes gèrent votre présence sociale, vos campagnes publicitaires et votre notoriété. Pas de bots. Pas d'automatisations low-cost.</p>
+      </div>
+
+      <div class="marketing-plans">
+        <div class="mkt-card">
+          <div class="mkt-card-top">
+            <div class="mkt-card-name">Essentiel</div>
+          </div>
+          <div class="mkt-card-price" id="price-mkt-essentiel">299€</div>
+          <div class="mkt-card-period">/ mois · sans engagement</div>
+          <div class="mkt-card-features">
+            <div class="mkt-feat"><div class="mkt-feat-icon">✓</div>10 posts / mois</div>
+            <div class="mkt-feat"><div class="mkt-feat-icon">✓</div>2 réseaux sociaux</div>
+            <div class="mkt-feat"><div class="mkt-feat-icon">✓</div>Rapport mensuel</div>
+            <div class="mkt-feat"><div class="mkt-feat-icon">✓</div>Veille concurrentielle</div>
+            <div class="mkt-feat"><div class="mkt-feat-icon">✓</div>Animation communauté</div>
+          </div>
+          <a href="/services-marketing" class="btn btn-outline" style="width:100%;justify-content:center;padding:12px">En savoir plus →</a>
+        </div>
+
+        <div class="mkt-card popular">
+          <div class="mkt-card-top">
+            <div class="mkt-card-name">Pro</div>
+            <span class="tag">Populaire</span>
+          </div>
+          <div class="mkt-card-price" id="price-mkt-pro">599€</div>
+          <div class="mkt-card-period">/ mois · sans engagement</div>
+          <div class="mkt-card-features">
+            <div class="mkt-feat"><div class="mkt-feat-icon">✓</div>30 posts / mois</div>
+            <div class="mkt-feat"><div class="mkt-feat-icon">✓</div>4 réseaux sociaux</div>
+            <div class="mkt-feat"><div class="mkt-feat-icon">✓</div>Pub Google & Meta</div>
+            <div class="mkt-feat"><div class="mkt-feat-icon">✓</div>Rapport hebdomadaire</div>
+            <div class="mkt-feat"><div class="mkt-feat-icon">✓</div>Création de contenu visuel</div>
+            <div class="mkt-feat"><div class="mkt-feat-icon">✓</div>Stratégie éditorial incluse</div>
+          </div>
+          <a href="/services-marketing" class="btn btn-primary" style="width:100%;justify-content:center;padding:12px">Choisir Pro →</a>
+        </div>
+
+        <div class="mkt-card">
+          <div class="mkt-card-top">
+            <div class="mkt-card-name">Elite</div>
+          </div>
+          <div class="mkt-card-price" id="price-mkt-elite">999€</div>
+          <div class="mkt-card-period">/ mois · sans engagement</div>
+          <div class="mkt-card-features">
+            <div class="mkt-feat"><div class="mkt-feat-icon">✓</div>Posts illimités</div>
+            <div class="mkt-feat"><div class="mkt-feat-icon">✓</div>Tous les réseaux</div>
+            <div class="mkt-feat"><div class="mkt-feat-icon">✓</div>Account Manager dédié</div>
+            <div class="mkt-feat"><div class="mkt-feat-icon">✓</div>Reporting en temps réel</div>
+            <div class="mkt-feat"><div class="mkt-feat-icon">✓</div>Séances vidéo mensuelles</div>
+            <div class="mkt-feat"><div class="mkt-feat-icon">✓</div>Tout le plan Pro inclus</div>
+          </div>
+          <a href="/services-marketing" class="btn btn-outline" style="width:100%;justify-content:center;padding:12px">En savoir plus →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PACKS COMPLETS ===== -->
+  <section class="section section-alt" id="packs">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Packs complets</span>
+        <h2>Tout-en-un, à prix réduit</h2>
+        <p>Combinez nos services et économisez chaque mois. Plus vous prenez, plus vous gagnez en efficacité et en tarif.</p>
+      </div>
+
+      <div class="packs-grid">
+
+        <div class="pack-card">
+          <div class="pack-name">Pack Essentiel</div>
+          <div class="pack-tagline">Pour démarrer avec les fondamentaux</div>
+          <div class="pack-price" id="price-pack-essentiel">199€ <span>/mois</span></div>
+          <div class="pack-saving" id="saving-pack-essentiel">Économisez 29€/mois</div>
+          <div class="pack-divider"></div>
+          <div class="pack-includes">Inclus :</div>
+          <div class="pack-features">
+            <div class="pack-feat">SaaS Panel Starter</div>
+            <div class="pack-feat">Site Web Essentiel</div>
+            <div class="pack-feat">Support email</div>
+            <div class="pack-feat">Hébergement inclus</div>
+          </div>
+          <a href="#contact" class="btn btn-outline pack-cta">Choisir ce pack</a>
+        </div>
+
+        <div class="pack-card">
+          <div class="pack-name">Pack Croissance</div>
+          <div class="pack-tagline">SaaS + Site + Marketing de base</div>
+          <div class="pack-price" id="price-pack-croissance">399€ <span>/mois</span></div>
+          <div class="pack-saving" id="saving-pack-croissance">Économisez 149€/mois</div>
+          <div class="pack-divider"></div>
+          <div class="pack-includes">Inclus :</div>
+          <div class="pack-features">
+            <div class="pack-feat">SaaS Panel Pro</div>
+            <div class="pack-feat">Site Web Essentiel</div>
+            <div class="pack-feat">Marketing Essentiel</div>
+            <div class="pack-feat">Support prioritaire</div>
+          </div>
+          <a href="#contact" class="btn btn-outline pack-cta">Choisir ce pack</a>
+        </div>
+
+        <div class="pack-card popular" style="position:relative">
+          <div class="pack-popular-tag">Le plus populaire</div>
+          <div class="pack-name">Pack Business</div>
+          <div class="pack-tagline">Le combo complet pour scaler</div>
+          <div class="pack-price" id="price-pack-business">699€ <span>/mois</span></div>
+          <div class="pack-saving" id="saving-pack-business">Économisez 299€/mois</div>
+          <div class="pack-divider"></div>
+          <div class="pack-includes">Inclus :</div>
+          <div class="pack-features">
+            <div class="pack-feat">SaaS Panel Pro</div>
+            <div class="pack-feat">Site Web Pro</div>
+            <div class="pack-feat">Marketing Pro</div>
+            <div class="pack-feat">Accompagnement mensuel</div>
+            <div class="pack-feat">Support téléphonique</div>
+          </div>
+          <a href="#contact" class="btn btn-primary pack-cta">Choisir ce pack</a>
+        </div>
+
+        <div class="pack-card">
+          <div class="pack-name">Pack Enterprise</div>
+          <div class="pack-tagline">Sur mesure pour les grands comptes</div>
+          <div class="pack-price" id="price-pack-enterprise">Sur devis</div>
+          <div class="pack-saving">&nbsp;</div>
+          <div class="pack-divider"></div>
+          <div class="pack-includes">Inclus :</div>
+          <div class="pack-features">
+            <div class="pack-feat">SaaS Enterprise (illimité)</div>
+            <div class="pack-feat">Site Web Pro + développements</div>
+            <div class="pack-feat">Marketing Elite</div>
+            <div class="pack-feat">Account Manager dédié</div>
+            <div class="pack-feat">SLA garanti + onboarding</div>
+          </div>
+          <a href="#contact" class="btn btn-outline pack-cta">Nous contacter</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TÉMOIGNAGES ===== -->
+  <section class="section" id="avis">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Témoignages</span>
+        <h2>Ce que disent nos clients</h2>
+        <p>500+ dirigeants font confiance à Sentinel pour piloter leur activité au quotidien.</p>
+      </div>
+
+      <div class="temoignages-grid" id="temoignages-grid">
+        <!-- Fallback statique -->
+        <div class="temoignage-card">
+          <div class="temoignage-stars">
+            <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span>
+          </div>
+          <blockquote>"Sentinel a transformé notre gestion. Le copilote IA nous a permis d'identifier 4 200€ d'économies fiscales dès le premier trimestre. Je ne reviendrais jamais en arrière."</blockquote>
+          <div class="temoignage-author">
+            <div class="temoignage-avatar">MD</div>
+            <div>
+              <div class="temoignage-name">Marie Dubois</div>
+              <div class="temoignage-poste">Dirigeante — Cabinet conseil, Lyon</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="temoignage-card">
+          <div class="temoignage-stars">
+            <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span>
+          </div>
+          <blockquote>"Le Pack Business nous a tout changé : site refait, marketing géré, et le SaaS Panel centralise tout. On économise 6h par semaine. Le ROI est évident dès le mois 1."</blockquote>
+          <div class="temoignage-author">
+            <div class="temoignage-avatar">TM</div>
+            <div>
+              <div class="temoignage-name">Thomas Martin</div>
+              <div class="temoignage-poste">CEO — Agence immobilière, Paris</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="temoignage-card">
+          <div class="temoignage-stars">
+            <span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span>
+          </div>
+          <blockquote>"Le support est vraiment humain, ça change tout. Une vraie personne répond en moins de 2h. Mon site a été livré en 10 jours et le trafic Google a doublé en 3 mois."</blockquote>
+          <div class="temoignage-author">
+            <div class="temoignage-avatar">SL</div>
+            <div>
+              <div class="temoignage-name">Sophie Laurent</div>
+              <div class="temoignage-poste">Fondatrice — E-commerce mode, Bordeaux</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GARANTIES ===== -->
+  <div class="guarantees">
+    <div class="container">
+      <div class="guarantees-grid">
+        <div class="guarantee-item">
+          <div class="guarantee-icon">FR</div>
+          <p>Données en France</p>
+          <span>Serveurs OVH certifiés HDS</span>
+        </div>
+        <div class="guarantee-item">
+          <div class="guarantee-icon">30j</div>
+          <p>30 jours remboursé</p>
+          <span>Satisfait ou 100% remboursé</span>
+        </div>
+        <div class="guarantee-item">
+          <div class="guarantee-icon">Libre</div>
+          <p>Résiliation libre</p>
+          <span>Aucun engagement minimum</span>
+        </div>
+        <div class="guarantee-item">
+          <div class="guarantee-icon">SAV</div>
+          <p>Support humain</p>
+          <span>Une vraie personne répond</span>
+        </div>
+        <div class="guarantee-item">
+          <div class="guarantee-icon">48h</div>
+          <p>Réponse en 48h</p>
+          <span>Toutes demandes traitées</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-info">
+          <h2>Parlons de votre projet</h2>
+          <p>Prêt à démarrer ? Contactez-nous directement. Nous répondons en moins de 48h et vous guidons vers la solution qui vous correspond.</p>
+          <div class="contact-details">
+            <div class="contact-item" id="c-email-block" style="display:none">
+              <div class="contact-item-icon">@</div>
+              <div>
+                <div class="contact-item-label">Email</div>
+                <div class="contact-item-value"><a id="c-email-link" href="">contact@exemple.fr</a></div>
+              </div>
+            </div>
+            <div class="contact-item" id="c-tel-block" style="display:none">
+              <div class="contact-item-icon">Tel</div>
+              <div>
+                <div class="contact-item-label">Téléphone</div>
+                <div class="contact-item-value"><a id="c-tel-link" href="">01 23 45 67 89</a></div>
+              </div>
+            </div>
+            <div class="contact-item" id="c-addr-block" style="display:none">
+              <div class="contact-item-icon">Adr</div>
+              <div>
+                <div class="contact-item-label">Adresse</div>
+                <div class="contact-item-value" id="c-addr-val">Paris, France</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-item-icon">h</div>
+              <div>
+                <div class="contact-item-label">Disponibilité</div>
+                <div class="contact-item-value">Lun – Ven · 9h à 18h</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-box">
+          <form id="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Votre nom *</label>
+                <input type="text" name="nom" required placeholder="Jean Dupont">
+              </div>
+              <div class="form-group">
+                <label>Votre email *</label>
+                <input type="email" name="email" required placeholder="jean@entreprise.fr">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Service qui vous intéresse</label>
+              <select name="service">
+                <option value="">— Sélectionnez un service —</option>
+                <option value="saas">SaaS Panel (gestion IA)</option>
+                <option value="web">Site Web Géré</option>
+                <option value="marketing">Marketing Humain</option>
+                <option value="pack-essentiel">Pack Essentiel</option>
+                <option value="pack-croissance">Pack Croissance</option>
+                <option value="pack-business">Pack Business</option>
+                <option value="pack-enterprise">Pack Enterprise</option>
+                <option value="autre">Autre / Question générale</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Votre entreprise</label>
+              <input type="text" name="entreprise" placeholder="Nom de votre société (optionnel)">
+            </div>
+            <div class="form-group">
+              <label>Votre message *</label>
+              <textarea name="message" required placeholder="Décrivez votre projet, vos besoins ou votre question..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit" id="f-submit">
+              Envoyer le message →
+            </button>
+            <div class="form-success" id="form-ok">
+              ✓ Message envoyé ! Nous vous répondrons dans les 48h.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section class="section cta-final">
+    <div class="container">
+      <div class="cta-box">
+        <h2>Prêt à simplifier votre PME ?</h2>
+        <p>Rejoignez 500+ dirigeants qui pilotent leur entreprise depuis un seul tableau de bord intelligent.</p>
+        <div class="cta-buttons">
+          <a href="#contact" class="btn btn-primary">Démarrer gratuitement →</a>
+          <a href="#packs" class="btn btn-outline">Voir nos packs</a>
+        </div>
+        <p class="cta-note">Sans carte bancaire · 30 jours remboursés · Annulation libre</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="footer-logo-icon">S</div>
+            <span class="footer-logo-name">Sentinel</span>
+          </div>
+          <p>La plateforme tout-en-un pour les PME ambitieuses. SaaS de gestion IA, site web géré, marketing humain.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="/saas">SaaS Panel</a></li>
+            <li><a href="/web">Site Web Géré</a></li>
+            <li><a href="/services-marketing">Marketing</a></li>
+            <li><a href="/packs">Packs complets</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Produit</h4>
+          <ul>
+            <li><a href="/connexion">Dashboard</a></li>
+            <li><a href="#packs">Tarifs</a></li>
+            <li><a href="#avis">Témoignages</a></li>
+            <li><a href="#contact">Support</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Légal</h4>
+          <ul>
+            <li><a href="/legal/cgv">CGV</a></li>
+            <li><a href="/legal/cgu">CGU</a></li>
+            <li><a href="/legal/confidentialite">Confidentialité</a></li>
+            <li><a href="/legal/mentions">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">© <span id="footer-year"></span> Sentinel. Tous droits réservés.</p>
+        <p class="footer-powered">Propulsé par <strong>Sentinel SaaS</strong> · Données hébergées en France</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+
+    /* ===== THEME ===== */
+    function getTheme() {
+      const saved = localStorage.getItem('sentinel-theme');
+      if (saved) return saved;
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      const btn = document.getElementById('theme-toggle');
+      if (btn) btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('sentinel-theme', next);
+      applyTheme(next);
+    }
+    // Apply on load
+    applyTheme(getTheme());
+
+    /* ===== MOBILE MENU ===== */
+    function toggleMenu() {
+      const menu = document.getElementById('nav-mobile');
+      const burger = document.getElementById('hamburger');
+      menu.classList.toggle('open');
+      burger.classList.toggle('open');
+    }
+    function closeMenu() {
+      const menu = document.getElementById('nav-mobile');
+      const burger = document.getElementById('hamburger');
+      menu.classList.remove('open');
+      burger.classList.remove('open');
+    }
+    // Close menu on scroll
+    window.addEventListener('scroll', closeMenu, { passive: true });
+
+    /* ===== HELPERS ===== */
+    const $ = id => document.getElementById(id);
+    function setText(id, val) { const el = $(id); if (el && val != null) el.textContent = val; }
+    function esc(s) {
+      return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')
+                          .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    /* ===== DYNAMIC PRICES ===== */
+    async function loadPrices() {
+      try {
+        const [svcRes, packsRes] = await Promise.all([
+          fetch('/api/v1/services'),
+          fetch('/api/v1/packs')
+        ]);
+
+        if (svcRes.ok) {
+          const svc = await svcRes.json();
+
+          // SaaS plans
+          if (svc.saas) {
+            if (svc.saas.starter)    setText('price-saas-starter',    svc.saas.starter    + '€/mois');
+            if (svc.saas.pro)        setText('price-saas-pro',        svc.saas.pro        + '€/mois');
+            if (svc.saas.enterprise) setText('price-saas-enterprise', svc.saas.enterprise + '€/mois');
+          }
+
+          // Site web
+          if (svc.web) {
+            if (svc.web.essentiel) setText('price-web-essentiel', svc.web.essentiel + '€');
+            if (svc.web.pro)       setText('price-web-pro',       svc.web.pro       + '€');
+          }
+
+          // Marketing
+          if (svc.marketing) {
+            if (svc.marketing.essentiel) setText('price-mkt-essentiel', svc.marketing.essentiel + '€');
+            if (svc.marketing.pro)       setText('price-mkt-pro',       svc.marketing.pro       + '€');
+            if (svc.marketing.elite)     setText('price-mkt-elite',     svc.marketing.elite     + '€');
+          }
+        }
+
+        if (packsRes.ok) {
+          const packs = await packsRes.json();
+          if (Array.isArray(packs)) {
+            packs.forEach(p => {
+              if (!p.slug) return;
+              if (p.prix != null) setText('price-pack-' + p.slug, p.prix + '€ ');
+              if (p.economie)     setText('saving-pack-' + p.slug, 'Économisez ' + p.economie + '€/mois');
+              if (p.label)        setText('price-pack-' + p.slug, p.label);
+            });
+          }
+        }
+
+      } catch { /* keep default prices */ }
+    }
+
+    /* ===== CMS CONTENT (témoignages + contact) ===== */
+    function applyContent(c) {
+      if (!c) return;
+
+      // Témoignages dynamiques
+      if (c.temoignages && c.temoignages.length > 0) {
+        const grid = $('temoignages-grid');
+        if (grid) {
+          grid.innerHTML = c.temoignages.map(t => {
+            const stars = [1,2,3,4,5].map(i =>
+              `<span class="star ${i <= (t.note||5) ? 'on' : 'off'}">★</span>`
+            ).join('');
+            const initials = (t.nom||'A').split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+            return `
+              <div class="temoignage-card">
+                <div class="temoignage-stars">${stars}</div>
+                <blockquote>"${esc(t.texte||'')}"</blockquote>
+                <div class="temoignage-author">
+                  <div class="temoignage-avatar">${esc(initials)}</div>
+                  <div>
+                    <div class="temoignage-name">${esc(t.nom||'')}</div>
+                    <div class="temoignage-poste">${esc(t.poste||'')}</div>
+                  </div>
+                </div>
+              </div>`;
+          }).join('');
+        }
+      }
+
+      // Infos contact
+      if (c.contact) {
+        if (c.contact.email) {
+          const el = $('c-email-link');
+          if (el) { el.textContent = c.contact.email; el.href = 'mailto:' + c.contact.email; }
+          const block = $('c-email-block');
+          if (block) block.style.display = '';
+        }
+        if (c.contact.telephone) {
+          const el = $('c-tel-link');
+          if (el) { el.textContent = c.contact.telephone; el.href = 'tel:' + c.contact.telephone.replace(/\s/g,''); }
+          const block = $('c-tel-block');
+          if (block) block.style.display = '';
+        }
+        if (c.contact.adresse) {
+          setText('c-addr-val', c.contact.adresse);
+          const block = $('c-addr-block');
+          if (block) block.style.display = '';
+        }
+      }
+    }
+
+    async function loadContent() {
+      try {
+        const res = await fetch('/api/vitrine/contenu');
+        if (!res.ok) return;
+        const data = await res.json();
+        if (data.contenu) applyContent(data.contenu);
+      } catch { /* keep static defaults */ }
+    }
+
+    /* ===== CONTACT FORM ===== */
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = $('f-submit');
+      btn.textContent = 'Envoi en cours…';
+      btn.disabled = true;
+      setTimeout(() => {
+        $('contact-form').reset();
+        $('form-ok').style.display = 'block';
+        btn.textContent = 'Envoyer le message →';
+        btn.disabled = false;
+        setTimeout(() => { $('form-ok').style.display = 'none'; }, 6000);
+      }, 1200);
+    }
+
+    /* ===== NAVBAR SCROLL ===== */
+    window.addEventListener('scroll', () => {
+      $('navbar').classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    /* ===== FOOTER YEAR ===== */
+    setText('footer-year', new Date().getFullYear());
+
+    /* ===== INIT ===== */
+    loadPrices();
+    loadContent();
+
+  </script>
+
+  <!-- CMS dynamique : charge le contenu depuis la base de données -->
+  <script>
+    (async () => {
+      try {
+        const res = await fetch('/api/vitrine');
+        if (!res.ok) return;
+        const data = await res.json();
+        const c = data.contenu || {};
+        if (c.hero_ligne1) {
+          const el = document.getElementById('v-h1-l1');
+          if (el) el.textContent = c.hero_ligne1;
+        }
+        if (c.hero_ligne2) {
+          const el = document.getElementById('v-h1-l2');
+          if (el) el.textContent = c.hero_ligne2;
+        }
+        if (c.hero_sous_titre) {
+          const el = document.getElementById('v-hero-sub');
+          if (el) el.textContent = c.hero_sous_titre;
+        }
+      } catch (_) {}
+    })();
+  </script>
+</body>
+</html>
